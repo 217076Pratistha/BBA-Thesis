@@ -1,0 +1,264 @@
+################################ 
+Data Analysis 1: ADF TEST
+################################ 
+
+1. adf.test(logrgdp)
+Augmented Dickey-Fuller Test
+data:  logrgdp
+Dickey-Fuller = -2.0906, Lag order = 3, p-value = 0.5379
+alternative hypothesis: stationary
+
+2. adf.test(logdsp)
+	Augmented Dickey-Fuller Test
+data:  logdsp
+Dickey-Fuller = -2.9963, Lag order = 3, p-value = 0.1892
+alternative hypothesis: stationary
+
+3. adf.test(logfrp)
+	Augmented Dickey-Fuller Test
+data:  logfrp
+Dickey-Fuller = -2.0904, Lag order = 3, p-value = 0.5379
+alternative hypothesis: stationary
+
+4. adf.test(loggfcf)
+	Augmented Dickey-Fuller Test
+data:  loggfcf
+Dickey-Fuller = -2.1313, Lag order = 3, p-value = 0.5222
+alternative hypothesis: stationary
+
+################################ 
+Data Analysis 2: Run Detailed ADF with Trend
+################################ 
+
+1. logrgdp
+
+Augmented Dickey-Fuller Test Unit Root Test # 
+Test regression trend 
+Call:
+lm(formula = z.diff ~ z.lag.1 + 1 + tt + z.diff.lag)
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.10104 -0.05207 -0.00812  0.02362  0.20700 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  5.25670    2.65660   1.979   0.0590 .
+z.lag.1     -0.23776    0.12177  -1.953   0.0622 .
+tt           0.02154    0.01122   1.919   0.0665 .
+z.diff.lag   0.25215    0.19430   1.298   0.2062  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.07411 on 25 degrees of freedom
+Multiple R-squared:  0.1488,	Adjusted R-squared:  0.04665 
+F-statistic: 1.457 on 3 and 25 DF,  p-value: 0.2503
+
+Value of test-statistic is: -1.9526 5.0099 1.91 
+
+Critical values for test statistics: 
+      1pct  5pct 10pct
+tau3 -4.15 -3.50 -3.18
+phi2  7.02  5.13  4.31
+phi3  9.31  6.73  5.61
+
+
+2. logdsp
+
+> summary(ur.df(logdsp, type = "trend", selectlags = "AIC"))
+
+# Augmented Dickey-Fuller Test Unit Root Test # 
+
+Test regression trend 
+
+Call:
+lm(formula = z.diff ~ z.lag.1 + 1 + tt + z.diff.lag)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.09644 -0.12003  0.06581  0.27825  0.62729 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  7.792778   3.492799   2.231   0.0349 *
+z.lag.1     -0.346029   0.156159  -2.216   0.0360 *
+tt           0.008629   0.010607   0.814   0.4236  
+z.diff.lag   0.124461   0.196937   0.632   0.5331  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.4214 on 25 degrees of freedom
+Multiple R-squared:  0.1674,	Adjusted R-squared:  0.06744 
+F-statistic: 1.675 on 3 and 25 DF,  p-value: 0.1978
+
+
+Value of test-statistic is: -2.2159 1.6917 2.485 
+
+Critical values for test statistics: 
+      1pct  5pct 10pct
+tau3 -4.15 -3.50 -3.18
+phi2  7.02  5.13  4.31
+phi3  9.31  6.73  5.61
+
+
+3. logfrp
+> summary(ur.df(logfrp, type = "trend", selectlags = "AIC"))
+
+# Augmented Dickey-Fuller Test Unit Root Test # 
+
+Test regression trend 
+Call:
+lm(formula = z.diff ~ z.lag.1 + 1 + tt + z.diff.lag)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.72030 -0.03290  0.04566  0.10976  0.34976 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  9.655020   3.600720   2.681   0.0128 *
+z.lag.1     -0.406760   0.153003  -2.659   0.0135 *
+tt           0.011361   0.008205   1.385   0.1784  
+z.diff.lag   0.399030   0.205605   1.941   0.0636 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.254 on 25 degrees of freedom
+Multiple R-squared:  0.2513,	Adjusted R-squared:  0.1614 
+F-statistic: 2.797 on 3 and 25 DF,  p-value: 0.0609
+
+
+Value of test-statistic is: -2.6585 2.5867 3.7971 
+
+Critical values for test statistics: 
+      1pct  5pct 10pct
+tau3 -4.15 -3.50 -3.18
+phi2  7.02  5.13  4.31
+phi3  9.31  6.73  5.61
+
+
+4. loggfcf
+> summary(ur.df(loggfcf, type = "trend", selectlags = "AIC"))
+
+# Augmented Dickey-Fuller Test Unit Root Test # 
+
+Test regression trend 
+Call:
+lm(formula = z.diff ~ z.lag.1 + 1 + tt + z.diff.lag)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.26310 -0.05287  0.01005  0.03794  0.24930 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  4.32393    2.38609   1.812   0.0820 .
+z.lag.1     -0.21141    0.11870  -1.781   0.0871 .
+tt           0.02243    0.01306   1.718   0.0982 .
+z.diff.lag   0.27172    0.19743   1.376   0.1809  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1123 on 25 degrees of freedom
+Multiple R-squared:  0.135,	Adjusted R-squared:  0.03117 
+F-statistic:   1.3 on 3 and 25 DF,  p-value: 0.2963
+
+
+Value of test-statistic is: -1.7811 3.3554 1.5988 
+
+Critical values for test statistics: 
+      1pct  5pct 10pct
+tau3 -4.15 -3.50 -3.18
+phi2  7.02  5.13  4.31
+phi3  9.31  6.73  5.61
+
+
+################################ 
+Data Analysis 3: Zivot-Andrews Unit Root Test:
+################################ 
+
+Call:
+lm(formula = testmat)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.086011 -0.042121 -0.006726  0.030393  0.143996 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  9.448032   2.932970   3.221 0.003527 ** 
+y.l1         0.569775   0.133891   4.256 0.000256 ***
+trend        0.036921   0.010352   3.567 0.001494 ** 
+du           0.178131   0.064718   2.752 0.010853 *  
+dt          -0.013711   0.005186  -2.644 0.013942 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.06135 on 25 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.995,	Adjusted R-squared:  0.9941 
+F-statistic:  1231 on 4 and 25 DF,  p-value: < 2.2e-16
+
+
+Teststatistic: -3.2132 
+Critical values: 0.01= -5.57 0.05= -5.08 0.1= -4.82 
+
+Potential break point at position: 16
+
+################################ 
+Data Analysis 4: Breusch-Godfrey Test for Serial Correlation
+################################ 
+
+Breusch-Godfrey test for serial correlation of order up to 1
+
+data:  model_ardl_manual
+LM test = 0.089301, df = 1, p-value = 0.7651
+
+################################ 
+Data Analysis 5: Heteroskedasticity – Breusch-Pagan Test
+################################ 
+CopyEdit
+
+studentized Breusch-Pagan test
+data:  model_ardl_manual
+BP = 7.1978, df = 8, p-value = 0.5154
+
+Data Analysis 6: Normality – Shapiro-Wilk Test
+Shapiro-Wilk normality test
+
+data:  residuals(model_ardl_manual)
+W = 0.94732, p-value = 0.1559
+
+################################ 
+Data Analysis 6: CUSUM Test of Recursive Residuals for Stability
+################################ 
+
+install.packages("strucchange")
+library(strucchange)
+
+# Convert to formula format again
+formula_ardl <- d_logrgdp ~ L_logrgdp + L_logdsp + L_logfrp + L_loggfcf +
+                             lag(d_logrgdp, -1) + lag(d_logdsp, -1) +
+                             lag(d_logfrp, -1) + lag(d_loggfcf, -1)
+
+# Recursive residuals
+cusum_model <- efp(formula_ardl, data = as.data.frame(na.omit(ecm_data)), type = "Rec-CUSUM")
+plot(cusum_model)
+
+################################ 
+Data Analysis 7: RESET TEST
+################################ 
+
+RESET test
+
+data:  model_ardl_manual
+RESET = 0.34837, df1 = 16, df2 = 4, p-value = 0.9427
+
+################################ 
+Data Analysis 8: VIF
+################################ 
+
+vif(vif_model)
+  logrgdp_lag    logdsp_lag    logfrp_lag   loggfcf_lag d_logrgdp_lag  d_logdsp_lag 
+   173.146819      2.486843      3.004204    185.002964      7.074105      1.532133 
+ d_logfrp_lag d_loggfcf_lag
+
